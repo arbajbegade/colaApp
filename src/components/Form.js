@@ -1,34 +1,21 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-function Form({handlelin1,handlelin2,handlelin3,handlelin4}) {
-
-  const[formData,setFormData] = useState({ })
+function Form({handlelin1}) {
+  const[name,setName] = useState('')
+  const handleName =(e)=>{
+    setName(e.target.value)
+  }
+  const[formData,setFormData] = useState('')
   const handleForm =(e)=>{
     const {name,value} = e.target
     setFormData({...formData,[name]:value})
   }
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  
-    // Get the selected line value from the dropdown
-    const selectedLine = document.querySelector("select").value;
-  
-    // Create a new object with the line as a key
-    const dataWithLine = {
-      [selectedLine]: formData,
-    };
-  
-    // Call the appropriate handlelinX function based on the selected line
-    if (selectedLine === "L1") {
-      handlelin1(dataWithLine);
-    } else if (selectedLine === "L2") {
-      handlelin2(dataWithLine);
-    } else if (selectedLine === "L3") {
-      handlelin3(dataWithLine);
-    } else if (selectedLine === "L4") {
-      handlelin4(dataWithLine);
-    }
-  };
+  const handleSubmit = (e)=>{
+    e.preventDefault()
+   
+    handlelin1(name)
+  }
  
   return (
     <div className="pt-16 ">
@@ -48,7 +35,7 @@ function Form({handlelin1,handlelin2,handlelin3,handlelin4}) {
             <input
               type="text"
               name="areaOwner"
-              onChange={handleForm}
+              onChange={handleName}
               className="focus:outline-none px-2 py-1 font-medium rounded-t-lg border-b bg-gray-50 border-gray-400  "
             />
           </div>
@@ -97,13 +84,8 @@ function Form({handlelin1,handlelin2,handlelin3,handlelin4}) {
               className="focus:outline-none px-2 py-1 font-medium rounded-t-lg border-b bg-gray-50 border-gray-400  t"
             />
           </div>
-
-          <input
-            type="button"
-            value="submit"
-            onClick={handleSubmit}
-            className="bg-blue-500 px-3 py-1 rounded text-white"
-          />
+          <Link to='/table1'>Click Me </Link>
+          <input type="button"value="submit"onClick={handleSubmit}className="bg-blue-500 px-3 py-1 rounded text-white"/>
         </div>
       </form>
     </div>

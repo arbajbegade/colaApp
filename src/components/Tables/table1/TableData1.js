@@ -1,11 +1,12 @@
 import React from 'react'
 
-function TableData1({line1}) {
+function TableData1() {
+  
   return (
     <tbody className="my-2 sliding">
       <tr className="border-b border-r text-6xl">
         <td className="px-6 py-4 font-bold">Area Owner </td>
-        <td className="px-6 py-4 font-semibold">Sahebrao Sonawane</td>
+        <td className="px-6 py-4 font-semibold">sa asdasd</td>
       </tr>
       <tr className="border-b border-r text-6xl bg-gray-200">
         <td className="px-6 py-4 font-bold">MTD Target</td>
