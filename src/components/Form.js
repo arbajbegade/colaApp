@@ -14,13 +14,21 @@ function Form() {
     setFormData({...formData,[e.target.name]:e.target.value})
   }
 
-  const handleSubmit = (e)=>{
-    e.preventDefault()
-    axios.post('https://jsonplaceholder.typicode.com/posts',{formData})
-    .then(response => console.log(response))
-    .catch(error => console.log(error))
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  }
+    // Send a POST request to your API
+    axios
+      .post('http://localhost:5000/form', formData) // Update the URL to match your server
+      .then((response) => {
+        console.log(response.data);
+        // Handle success, e.g., show a success message to the user
+      })
+      .catch((error) => {
+        console.error(error);
+        // Handle errors, e.g., show an error message to the user
+      });
+  };
  
   return (
     <div className="pt-16 ">
