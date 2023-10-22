@@ -12,7 +12,7 @@ function Table() {
         console.error(error);
       });
     }, []);
-  
+
   
     if (tableData.length === 0) {
       return <div>No data available.</div>;
