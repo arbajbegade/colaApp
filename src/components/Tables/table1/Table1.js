@@ -4,44 +4,46 @@ function Table1() {
 
 
   return (
-    <div className="h-screen overflow-hidden ">
-      <nav className="bg-blue-500 flex justify-center p-1 text-white text-4xl font-bold sticky top-0 z-10">LINE 1</nav>
-      <table className="min-w-full ">
-        <tbody className="my-2 sliding">
-          <tr className="border-b border-r text-6xl">
-            <td className="px-6 py-4 font-bold">Area Owner </td>
-            <td className="px-6 py-4 font-semibold">Name</td>
-          </tr>
-          <tr className="border-b border-r text-6xl bg-gray-200">
-            <td className="px-6 py-4 font-bold">MTD Target</td>
-            <td className="px-6 py-4 font-semibold">123456789</td>
-          </tr>
-          <tr className="border-b border-r text-6xl">
-            <td className="px-6 py-4 font-bold">ACT MTD</td>
-            <td className="px-6 py-4 font-semibold">123456789</td>
-          </tr>
-          <tr className="border-b border-r text-6xl bg-gray-200">
-            <td className="px-6 py-4 font-bold">YTD Volume</td>
-            <td className="px-6 py-4 font-semibold">123456789</td>
-          </tr>
-          <tr className="border-b border-r text-6xl">
-            <td className="px-6 py-4 font-bold">Week Target</td>
-            <td className="px-6 py-4 font-semibold">123456789</td>
-          </tr>
-          <tr className="border-b border-r text-6xl bg-gray-200">
-            <td className="px-6 py-4 font-bold">Week GMP Score</td>
-            <td className="px-6 py-4 font-semibold">123456789</td>
-          </tr>
-          <tr className="border-b border-r text-6xl">
-            <td className="px-6 py-4 font-bold">Day Production Target</td>
-            <td className="px-6 py-4 font-semibold">123456789</td>
-          </tr>
-          <tr className="border-b border-r text-6xl bg-gray-200">
-            <td className="px-6 py-4 font-bold">Current Run</td>
-            <td className="px-6 py-4 font-semibold">123456789</td>
-          </tr>
-        </tbody>
-      </table>
+    <div className="rotate-90 -mt-[10.8rem] absolute right-[8.8rem] w-[37rem]">
+      <div>
+        <form className="flex flex-col space-y-2 mt-2 items-center text-[2.2rem] font-bold py-1 ">
+          <tbody>
+            <div className="text-center bg-blue-500 text-white font-bold text-3xl py-2">Line 1</div>
+            <tr>
+              <td className="py-3 px-2 border border-gray-300">Area Owner <br /> Name</td>
+              <td className="px-3 border border-gray-300"></td>
+            </tr>
+            <tr className="bg-slate-200">
+              <td className="py-2 border border-gray-300">MTD Target</td>
+              <td className="px-3 border border-gray-300">12345678910</td>
+            </tr>
+            <tr>
+              <td className="py-3 border border-gray-300">ACT MTD</td>
+              <td className="px-3 border border-gray-300">12345678910</td>
+            </tr>
+            <tr className="bg-slate-200">
+              <td className="py-3 border border-gray-300">YTD Volume</td>
+              <td className="px-3 border border-gray-300">12345678910</td>
+            </tr>
+            <tr>
+              <td className="py-3 border border-gray-300">Week Target</td>
+              <td className="px-3 border border-gray-300">12345678910</td>
+            </tr>
+            <tr className="bg-slate-200">
+              <td className="py-3 border border-gray-300">Week GMP <br /> Score</td>
+              <td className="px-3 border border-gray-300">12345678910</td>
+            </tr>
+            <tr>
+              <td className="py-3 border border-gray-300">Day <br /> Production <br /> Target</td>
+              <td className="px-3 border border-gray-300">12345678910</td>
+            </tr>
+            <tr className="bg-slate-200">
+              <td className="py-3 border border-gray-300">Current Run</td>
+              <td className="px-3 border border-gray-300">12345678910</td>
+            </tr>
+          </tbody>
+        </form>
+      </div>
     </div>
   );
 }
