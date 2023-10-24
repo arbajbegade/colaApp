@@ -1,41 +1,93 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import { useTable } from 'react-table';
+import axios from 'axios';
 
 function Table() {
-    const [tableData, setTableData] = useState([]);
-  
-    useEffect(() => {
-      // Fetch data from the API when the component mounts
-      axios.get('http://localhost:5000').then((response) => {
+  const [tableData, setTableData] = useState([]);
+  const columns = React.useMemo(
+    () => [
+      {
+        Header: 'Area Owner',
+        accessor: 'areaOwner', // Change this accessor to match your data structure
+      },
+      {
+        Header: 'MTD Target',
+        accessor: 'target',
+      },
+      {
+        Header: 'ACT MTD',
+        accessor: 'actmtd',
+      },
+      {
+        Header: 'YTD Volume',
+        accessor: 'ytdvolume',
+      },
+      {
+        Header: 'Week Target',
+        accessor: 'weektarget',
+      },
+      {
+        Header: 'Week GMP Score',
+        accessor: 'weekgmpscore',
+      },
+    ],
+    []
+  );
+
+  useEffect(() => {
+    // Fetch data from the server when the component mounts
+    axios.get('http://localhost:5000/table')
+      .then((response) => {
         setTableData(response.data);
-      }).catch((error) => {
+      })
+      .catch((error) => {
         console.error(error);
       });
-    }, []);
+  }, []);
 
-  
-    if (tableData.length === 0) {
-      return <div>No data available.</div>;
-    }
-  
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    rows,
+    prepareRow,
+  } = useTable({
+    columns,
+    data: tableData,
+  });
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>ID</th>
-        </tr>
-      </thead>
-      <tbody>
-        {tableData.map((item, index) => (
-          <tr key={index}>
-            <td>{item.areaOwner}</td>
-            <td>{item.target}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <div>
+      <table {...getTableProps()} className="border-collapse">
+        <thead>
+          {headerGroups.map(headerGroup => (
+            <tr {...headerGroup.getHeaderGroupProps()}>
+              {headerGroup.headers.map(column => (
+                <th {...column.getHeaderProps()} className="border p-2">
+                  {column.render('Header')}
+                </th>
+              ))}
+            </tr>
+          ))}
+        </thead>
+        <tbody {...getTableBodyProps()}>
+          {rows.map(row => {
+            prepareRow(row);
+            return (
+              <tr {...row.getRowProps()}>
+                {row.cells.map(cell => {
+                  return (
+                    <td {...cell.getCellProps()} className="border p-2">
+                      {cell.render('Cell')}
+                    </td>
+                  );
+                })}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
   );
 }
 

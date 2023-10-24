@@ -19,7 +19,7 @@ function Form() {
 
     // Send a POST request to your API
     axios
-      .post('http://localhost:5000/form', formData) // Update the URL to match your server
+      .post('http://localhost:5000', formData) // Update the URL to match your server
       .then((response) => {
         console.log(response.data);
         // Handle success, e.g., show a success message to the user
@@ -97,7 +97,7 @@ function Form() {
             <label className="font-bold text-xl">Week GMP Score:</label>
             <input
               type="text"
-              name="weekgmpsource"
+              name="weekgmpscore"
               onChange={handleChange}
               className="focus:outline-none px-2 py-1 font-medium rounded-t-lg border-b bg-gray-50 border-gray-400  t"
               required
